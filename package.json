@@ -2,24 +2,51 @@
   "name": "scantruck",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-scripts": "2.0.5"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "format": "prettier-eslint --write \"src/**/*.js\"",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "flow",
+    "test-src": "jest --coverage",
+    "test-watch": "yarn test-src --watch",
+    "test": "yarn lint && yarn typecheck && yarn test-src"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "eslint": "5.6.0",
+    "react": "^16.5.2",
+    "react-art": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-native": "^0.57.3",
+    "react-native-web": "^0.9.3",
+    "react-scripts": "2.0.5"
+  },
+  "devDependencies": {
+    "eslint-config-react-app": "^3.0.4",
+    "eslint-plugin-babel": "^5.2.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.25.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.83.0",
+    "prettier-eslint": "^8.8.2",
+    "prettier-eslint-cli": "^4.7.1"
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  }
 }
