@@ -1,16 +1,32 @@
 // @flow
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Provider} from 'react-redux';
 
-export default class App extends React.Component<{}> {
+import Router from './routes/Router';
+import Toolbar from './general/components/Toolbar';
+import ResizeSensor from './general/components/ResizeSensor';
+
+import {ROUTE_LIST} from './routes/routeList';
+
+import type {Store} from './types';
+
+type Props = {
+  store: Store,
+};
+
+export default class App extends React.Component<Props> {
   render() {
+    let {store} = this.props;
     return (
-      <View style={styles.container}>
-        <Text>Open up src/App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <Toolbar />
+          <ResizeSensor />
+          <Router sceneList={ROUTE_LIST} />
+        </View>
+      </Provider>
     );
   }
 }
@@ -18,7 +34,7 @@ export default class App extends React.Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
